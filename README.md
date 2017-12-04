@@ -122,6 +122,8 @@ Now that you've added hosts and your first container is up and running, you can 
 
 [Configuring Access Control]({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/configuration/access-control/)
 
+About Rancher Server (tag info)
+
 Other ways to create containers - new articles
 
 Adding Services?
