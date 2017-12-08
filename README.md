@@ -141,9 +141,9 @@ To help you deploy complex stacks, Rancher offers a catalog of application templ
 #### To Launch a Catalog Application
 
 1. On the Rancher UI menu, click **Catalog**, and then select one of the following:
-   * **All** -- This option displays both Rancher Certified Library and Rancher Community catalog templates.
-   * **Library** -- This catalog provides Rancher Certified Library templates for core and infrastructure services. It’s maintained and [certified by Rancher Labs](https://github.com/rancher/rancher-catalog).
-   * **Community** -- This catalog provides templates for any application. Templates are created and maintained by the [Rancher Community](https://github.com/rancher/community-catalog), not certified by Rancher Labs.
+   * **All** &mdash; This option displays both Rancher Certified Library and Rancher Community catalog templates.
+   * **Library** &mdash; This catalog provides Rancher Certified Library templates for core and infrastructure services. It’s maintained and [certified by Rancher Labs](https://github.com/rancher/rancher-catalog).
+   * **Community** &mdash; This catalog provides templates for any application. Templates are created and maintained by the [Rancher Community](https://github.com/rancher/community-catalog), not certified by Rancher Labs.
 2. Search for the template you want to launch, and then click **View Details**.
 3. Select a **Template Version**. The lastest version displays by default.
 4. Enter a **Name** (required) and **Description** (optional) for your template.   
