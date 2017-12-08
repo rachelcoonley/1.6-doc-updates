@@ -56,7 +56,7 @@ Rancher supports grouping resources into multiple [environments]({{site.baseurl}
 
 In addition to Docker Swarm, Kubernetes, and Mesos, Rancher supports its own container orchestration and scheduling framework called **Cattle**. Rancher uses Cattle extensively to orchestrate infrastructure services, as well as to set up, manage, and upgrade Swarm, Kubernetes, and Mesos clusters.
 
-Initially, Rancher creates a **Default** Cattle environment for you. You can also create a new environment that has an environment template set as another container orchestration. If you create a  [Kubernetes]({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/tasks/environments/kubernetes/) environment, see our [Quick Start Guide for Kubernetes](({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/quick-start-guide/kubernetes/) to continue.
+Initially, Rancher creates a **Default** Cattle environment for you. You can also create a new environment that has an environment template set as another container orchestration. If you want to create a [Kubernetes]({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/tasks/environments/kubernetes/) environment, see our [Quick Start Guide for Kubernetes]({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/quick-start-guide/kubernetes/) to continue.
 
 ### Adding Hosts
 
@@ -108,9 +108,9 @@ After you add at least one host to your environment, it might take several minut
 
 Once you've verified that all system services are up and running, you're ready to create your first container. To do so, create a stack and then add services to it. A `stack` is a convenient way to group services together.
 
-The process for adding a container differs depending on your container orchestration type. In this guide, we're going to cover adding containers to Cattle. For information on adding containers to other container orchestration types, see [Adding Containers]({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/tasks/stacks/adding-containers/).
+The process for adding a container differs depending on your container orchestration type. In this guide, we're going to cover adding containers to your Cattle environment. For information on adding containers to other container orchestration types, see [Adding Containers]({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/tasks/stacks/adding-containers/).
 
-#### To Add a Container to Your Cattle Environment:
+#### To Add a Container:
 
 1. On the Rancher UI menu, click **Stacks**. (Or, from the Welcome screen, click **Define a Service**.)
 2. Click **Add Stack**. The Add Stack page displays.
@@ -126,7 +126,7 @@ From the `first-container` drop-down list, you can perform management actions, s
 
 To help you deploy complex stacks, Rancher offers a catalog of application templates.
 
-#### To Launch a Catalog Application
+#### To Launch a Catalog Application:
 
 1. On the Rancher UI menu, click **Catalog**, and then select one of the following:
    * **All** -- This option displays both Rancher Certified Library and Rancher Community catalog templates.
@@ -142,7 +142,7 @@ To help you deploy complex stacks, Rancher offers a catalog of application templ
 6. Select **Start services after creating**.
 7. Click **Launch**. On the Stack page, you'll see Rancher is creating a stack based on your new application. This process might take a few minutes.
 
-Once its services are up and running, the state of your new stack displays in green.
+Once your new stack's services are up and running, its state displays in green.
 
 ### Next Steps
 
