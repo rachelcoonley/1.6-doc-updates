@@ -52,11 +52,11 @@ It only takes one command and a few minutes to install and launch Rancher Server
 
 ### Working with Your First Environment
 
-Rancher supports grouping resources into multiple [environments]({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/concepts/environments/). Each environment starts with an [environment template]({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/concepts/environment-template) that defines its set of [infrastructure services]({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/concepts/infra-services/), and one or more users or groups own it.
+Rancher supports grouping resources into multiple [environments]({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/concepts/environments/). Each environment starts with an [environment template]({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/concepts/environment-template) to define its set of [infrastructure services]({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/concepts/infra-services/), and one or more users or groups own it.
 
 In addition to Docker Swarm, Kubernetes, and Mesos, Rancher supports its own container orchestration and scheduling framework called **Cattle**. Rancher uses Cattle extensively to orchestrate infrastructure services, as well as to set up, manage, and upgrade Swarm, Kubernetes, and Mesos clusters.
 
-Initially, Rancher creates a **Default** Cattle environment for you. You can also create a new environment that has an environment template set as another container orchestration. If you want to create a [Kubernetes]({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/tasks/environments/kubernetes/) environment, see our [Quick Start Guide for Kubernetes]({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/quick-start-guide/kubernetes/) to continue.
+Initially, Rancher creates a **Default** Cattle environment for you. You can also create a new environment that has an environment template set as another container orchestration type. If you want to create a [Kubernetes]({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/tasks/environments/kubernetes/) environment, see our [Quick Start Guide for Kubernetes]({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/quick-start-guide/kubernetes/) to continue.
 
 ### Adding Hosts
 
