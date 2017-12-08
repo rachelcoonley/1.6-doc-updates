@@ -3,8 +3,6 @@ title: Quick Start Guide
 layout: rancher-default-v1.6
 version: v1.6
 lang: en
-redirect_from:
-  - /rancher/quick-start-guide/
 ---
 
 ## Quick Start Guide
@@ -21,14 +19,14 @@ In this guide, you'll learn how to quickly get started with Rancher v1.6, includ
 
 ### Preparing a Linux Host
 
-To begin, you'll need to install a [supported version of Docker]({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/hosts/#supported-docker-versions) on a single Linux host. You can use your laptop, a virtual machine, or a physical server.
+To begin, you'll need to install a [supported version of Docker]({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/setup/#supported-docker-versions) on a single Linux host. You can use your laptop, a virtual machine, or a physical server.
 
->**Note:** Currently, Docker for Windows and Docker for Mac are not supported.
+>**Note:** Currently, Rancher does not support Docker for Windows and Docker for Mac.
 
 #### To Prepare a Linux Host:
 
 1. Prepare a Linux host with 64-bit Ubuntu 16.04, at least **1GB** of memory, and a kernel of 3.10+.
-2. Install a [supported version of Docker]({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/hosts/#supported-docker-versions) on the host. To install Docker on the server, follow the instructions from [Docker](https://docs.docker.com/engine/installation/linux/ubuntulinux/).
+2. Install a [supported version of Docker]({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/setup/#supported-docker-versions) on the host. To install Docker on the server, follow the instructions from [Docker](https://docs.docker.com/engine/installation/linux/ubuntulinux/).
 
 ### Launching Rancher Server
 
@@ -44,27 +42,25 @@ It only takes one command and a few minutes to install and launch Rancher Server
    # Tail the logs to show Rancher
    $ sudo docker logs -f <CONTAINER_ID>
    ```
-   After launching the container, we'll tail the logs of the container to see when the server is up and running. This process  might take several minutes to complete.
+   After launching the container, we'll tail the logs of the container to see when the server is up and running. This process might take several minutes to complete.
 
 2. To access the Rancher UI, go to `http://<SERVER_IP>:8080`, replacing `<SERVER_IP>` with the IP address of your host. The UI displays a Welcome page.
 
-   > **Note:** If you are running your browser on the same host running Rancher server, you will need to use the host’s real    IP address, such as `http://192.168.1.100:8080,` and not `http://localhost:8080` or `http://127.0.0.1:8080.`
+   > **Note:** If you are running your browser on the same host running Rancher server, you will need to use the host’s real IP address, such as `http://192.168.1.100:8080,` and not `http://localhost:8080` or `http://127.0.0.1:8080`.
 
 3. Click **Authenticate with GitHub**. The Rancher UI displays.
 
 ### Working with Your First Environment
 
-Rancher supports grouping resources into multiple [environments]({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/concepts/environments/). Each environment starts with a set of [infrastructure services]({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/concepts/infra-services/) defined by its [environment template]({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/concepts/environment-template), and it is owned by one or more users or groups.
+Rancher supports grouping resources into multiple [environments]({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/concepts/environments/). Each environment starts with an [environment template]({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/concepts/environment-template) that defines its set of [infrastructure services]({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/concepts/infra-services/), and one or more users or groups own it.
 
 In addition to Docker Swarm, Kubernetes, and Mesos, Rancher supports its own container orchestration and scheduling framework called **Cattle**. Rancher uses Cattle extensively to orchestrate infrastructure services, as well as to set up, manage, and upgrade Swarm, Kubernetes, and Mesos clusters.
 
-Initially, Rancher creates a **Default** Cattle environment for you. You can also create a new environment that has an environment template set as another container orchestration, such as [Kubernetes]({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/tasks/environments/configuring-kubernetes/). To configure and launch Kubernetes from the Rancher Catalog, from the UI menu, click **Catalog > Library**.
+Initially, Rancher creates a **Default** Cattle environment for you. You can also create a new environment that has an environment template set as another container orchestration. If you create a  [Kubernetes]({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/tasks/environments/kubernetes/) environment, see our [Quick Start Guide for Kubernetes](({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/quick-start-guide/kubernetes/) to continue.
 
 ### Adding Hosts
 
-The process of adding hosts is the same steps for all container orchestration types, including Cattle and Kubernetes. For Kubernetes, adding your first host deploys infrastructure services, including Kubernetes services like master, kubelet, etcd, and proxy. You can see the progress of the deployment by accessing the **Kubernetes > Infrastructure Stacks** UI menu.
-
-You can either add a host from a cloud provider that Rancher v1.6 supports, or you can add a custom host. If you don't see your cloud provider in the UI, don't worry. Simply use the custom host option.
+The process of adding hosts is the same steps for all container orchestration types. You can either add a host from a cloud provider that Rancher v1.6 supports, or you can add a custom host. If you don't see your cloud provider in the UI, don't worry. Simply use the custom host option.
 
 The `Custom` option is selected by default. It provides the Docker command to launch the Rancher agent container. Rancher uses Docker Machine to launch hosts for the other cloud providers.
 
@@ -101,7 +97,7 @@ If you're adding a custom host, note these requirements:
    http://<SERVER_IP>:8080/v3/scripts/D5433C26EC51325F9D98:1483142400000:KvILQKwz1N2MpOkOiIvGYKKGdE
    ```
 
-   >**Note:** The IP address in the command must match your `<SERVER_IP>` and must be reachable from inside your host.
+   >**Note:** The IP address in the command must match your `<SERVER_IP>` and it must be reachable from inside your host.
 
 5. Copy, paste, and run the Docker command on your host to register it with Rancher. This process might take a few minutes to complete.
 6. Click **Close**. On the Hosts page, you can view the status of your host.
@@ -112,7 +108,7 @@ After you add at least one host to your environment, it might take several minut
 
 Once you've verified that all system services are up and running, you're ready to create your first container. To do so, create a stack and then add services to it. A `stack` is a convenient way to group services together.
 
-The process for adding a container differs depending on your container orchestration type. In this guide, we're going to cover adding containers to the two most common orchestration types used in Rancher, Cattle and Kubernetes. For more information, see [Adding Containers](ADD LINK).
+The process for adding a container differs depending on your container orchestration type. In this guide, we're going to cover adding containers to Cattle. For information on adding containers to other container orchestration types, see [Adding Containers]({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/tasks/stacks/adding-containers/).
 
 #### To Add a Container to Your Cattle Environment:
 
@@ -120,19 +116,11 @@ The process for adding a container differs depending on your container orchestra
 2. Click **Add Stack**. The Add Stack page displays.
 3. Enter a **Name**, such as `first-container`.
 4. Click **Create**. The new stack displays on the Stacks page.
-5. Click **Add Service** in the new stack, and then enter a name, such as `first-service.` Rancher launches the container on the host. This process might take a few minutes to complete. You can view the status of the container on the Stacks page.
+5. Click **Add Service** in the new stack, and then enter a name, such as `first-service`. Rancher launches the container on the host. This process might take a few minutes to complete. You can view the status of the container on the Stacks page.
 
 Regardless of your host's IP address, `first-container` will have an IP address in the `10.42.*.*` range, as Rancher has created a managed overlay network with the `ipsec` infrastructure service. This managed overlay network is how containers can communicate with each other across different hosts.
 
 From the `first-container` drop-down list, you can perform management actions, such as stopping the container, viewing the logs, and accessing the container console.
-
-#### To Add a Container to Your Kubernetes Environment:
-
-1. Configure `kubectl` for your local machine by generating a configuration from the **Kubernetes > CLI** UI menu. Or, you can use the shell from the **Kubernetes > kubectl** UI menu.
-2. Run which kubectl commands? http://rancher.com/docs/rancher/v1.6/en/kubernetes/#kubectl
-Need cluster + kubectl? (create configmap?) https://kubernetes.io/docs/tasks/configure-pod-container/configmap/
-
-Now that you've added hosts and your first container is up and running, you can check out the rest of the features in Rancher v1.6.
 
 ### Launching Catalog Applications
 
@@ -141,11 +129,11 @@ To help you deploy complex stacks, Rancher offers a catalog of application templ
 #### To Launch a Catalog Application
 
 1. On the Rancher UI menu, click **Catalog**, and then select one of the following:
-   * **All** &mdash; This option displays both Rancher Certified Library and Rancher Community catalog templates.
-   * **Library** &mdash; This catalog provides Rancher Certified Library templates for core and infrastructure services. It’s maintained and [certified by Rancher Labs](https://github.com/rancher/rancher-catalog).
-   * **Community** &mdash; This catalog provides templates for any application. Templates are created and maintained by the [Rancher Community](https://github.com/rancher/community-catalog), not certified by Rancher Labs.
+   * **All** -- This option displays both Rancher Certified Library and Rancher Community catalog templates.
+   * **Library** -- This catalog provides Rancher Certified Library templates for core and infrastructure services. It’s maintained and [certified by Rancher Labs](https://github.com/rancher/rancher-catalog).
+   * **Community** -- This catalog provides templates for any application. Templates are created and maintained by the [Rancher Community](https://github.com/rancher/community-catalog), not certified by Rancher Labs.
 2. Search for the template you want to launch, and then click **View Details**.
-3. Select a **Template Version**. The lastest version displays by default.
+3. Select a **Template Version**. The latest version displays by default.
 4. Enter a **Name** (required) and **Description** (optional) for your template.   
 5. Enter the **Configuration Options**, which are specific to the template.
 
@@ -158,10 +146,9 @@ Once its services are up and running, the state of your new stack displays in gr
 
 ### Next Steps
 
-[Configuring Access Control]({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/configuration/access-control/)
+Now that you've added hosts, created your first container, and launched a catalog application, you can check out the rest of the features in Rancher v1.6:
 
-[Adding Containers](Add link)
-
-### Related Topics
-
-[About Rancher Server Tags](Add link)
+* [Setup]({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/setup/)
+* [Concepts]({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/concepts/)
+* [Tasks]({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/tasks/)
+* [FAQ]({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/faq/)
