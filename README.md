@@ -32,7 +32,7 @@ To begin, you'll need to install a [supported version of Docker]({{site.baseurl}
 
 It only takes one command and a few minutes to install and launch Rancher Server. Once installed, you can open a web browser to access the Rancher UI.
 
-> **Note:** We recommend configuring [access control](http://rancher.com/docs/rancher/v1.6/en/configuration/access-control/). Otherwise, your UI and API is available to anyone can access your IP address.
+> **Note:** We recommend configuring [access control](http://rancher.com/docs/rancher/v1.6/en/configuration/access-control/). Otherwise, your UI and API is available to anyone who can access your IP address.
 
 #### To Launch Rancher Server:
 
