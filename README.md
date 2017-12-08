@@ -39,16 +39,16 @@ It only takes one command and a few minutes to install and launch Rancher Server
 #### To Launch Rancher Server:
 
 1. Run this Docker command on your host:
-```bash
-$ sudo docker run -d --restart=unless-stopped -p 8080:8080 rancher/server:stable
-# Tail the logs to show Rancher
-$ sudo docker logs -f <CONTAINER_ID>
-```
-After launching the container, we'll tail the logs of the container to see when the server is up and running. This process might take several minutes to complete.
+   ```bash
+   $ sudo docker run -d --restart=unless-stopped -p 8080:8080 rancher/server:stable
+   # Tail the logs to show Rancher
+   $ sudo docker logs -f <CONTAINER_ID>
+   ```
+   After launching the container, we'll tail the logs of the container to see when the server is up and running. This process  might take several minutes to complete.
 
 2. To access the Rancher UI, go to `http://<SERVER_IP>:8080`, replacing `<SERVER_IP>` with the IP address of your host. The UI displays a Welcome page.
 
- > **Note:** If you are running your browser on the same host running Rancher server, you will need to use the host’s real IP address, such as `http://192.168.1.100:8080,` and not `http://localhost:8080` or `http://127.0.0.1:8080.`
+   > **Note:** If you are running your browser on the same host running Rancher server, you will need to use the host’s real    IP address, such as `http://192.168.1.100:8080,` and not `http://localhost:8080` or `http://127.0.0.1:8080.`
 
 3. Click **Authenticate with GitHub**. The Rancher UI displays.
 
