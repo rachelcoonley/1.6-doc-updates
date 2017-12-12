@@ -72,20 +72,6 @@ If you're adding a custom host, note these requirements:
   * IPSec: `500/udp` and `4500/udp`
   * VXLAN: `4789/udp`
 
-#### To Add a Host from a Cloud Provider:
-
-1. From the **Infrastructure** menu, select **Hosts**. The Hosts page displays.
-2. Click **Add Host**.
-3. Enter your **Host Registration URL**, and click **Save**. This URL is where Rancher Server is running, and it must be reachable from any hosts you add. Ignore any warnings for now. The Add Host page displays.
-4. Select your cloud provider:
-   * Amazon EC2
-   * Microsoft Azure
-   * DigitalOcean
-   * Packet
-   * Other
-
-5. Follow the instructions in the Rancher UI to add your host. This process might take a few minutes to complete. Once your host is ready, you can view its status on the Hosts page.
-
 #### To Add a Custom Host:
 
 1. From the **Infrastructure** menu, select **Hosts**. The Hosts page displays.
@@ -101,6 +87,20 @@ If you're adding a custom host, note these requirements:
 
 5. Copy, paste, and run the Docker command on your host to register it with Rancher. This process might take a few minutes to complete.
 6. Click **Close**. On the Hosts page, you can view the status of your host.
+
+#### To Add a Host from a Cloud Provider:
+
+1. From the **Infrastructure** menu, select **Hosts**. The Hosts page displays.
+2. Click **Add Host**.
+3. Enter your **Host Registration URL**, and click **Save**. This URL is where Rancher Server is running, and it must be reachable from any hosts you add. Ignore any warnings for now. The Add Host page displays.
+4. Select your cloud provider:
+   * Amazon EC2
+   * Microsoft Azure
+   * DigitalOcean
+   * Packet
+   * Other
+
+5. Follow the instructions in the Rancher UI to add your host. This process might take a few minutes to complete. Once your host is ready, you can view its status on the Hosts page.
 
 After you add at least one host to your environment, it might take several minutes for all Rancher system services to launch. To verify the status of your environment, from the **Environment** menu, select **Manage Environments**. If a service is healthy, its state displays in green.
 
