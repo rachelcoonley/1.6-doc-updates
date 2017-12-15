@@ -26,7 +26,7 @@ To begin, you'll need to install a [supported version of Docker]({{site.baseurl}
 #### To Prepare a Linux Host:
 
 1. Prepare a Linux host with 64-bit Ubuntu 16.04, at least **1GB** of memory, and a kernel of 3.10+.
-2. Install a [supported version of Docker]({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/setup/#supported-docker-versions) on the host. To install Docker on the server, follow the instructions from [Docker](https://docs.docker.com/engine/installation/linux/ubuntulinux/).
+2. Install a [supported version of Docker]({{site.baseurl}}/rancher/{{page.version}}/{{page.lang}}/setup/#supported-docker-versions) on the host. To install Docker on the server, follow the instructions from [Docker](https://docs.docker.com/engine/installation/linux/ubuntu/).
 
 ### Launching Rancher Server
 
@@ -42,13 +42,13 @@ It only takes one command and a few minutes to install and launch Rancher Server
    # Tail the logs to show Rancher
    $ sudo docker logs -f <CONTAINER_ID>
    ```
-   After launching the container, we'll tail the logs of the container to see when the server is up and running. This process might take several minutes to complete.
+   After launching the container, we'll tail the logs of the container to see when the server is up and running. When the Rancher UI is ready, a `Startup Succeeded, Listening on port` message displays. This process might take several minutes to complete.
 
-2. To access the Rancher UI, go to `http://<SERVER_IP>:8080`, replacing `<SERVER_IP>` with the IP address of your host. The UI displays a Welcome page.
+2. To access the Rancher UI, go to `http://<SERVER_IP>:8080`, replacing `<SERVER_IP>` with the IP address of your host. The UI displays a Welcome to Rancher message.
 
    > **Note:** If you are running your browser on the same host running Rancher server, you will need to use the host’s real IP address, such as `http://192.168.1.100:8080,` and not `http://localhost:8080` or `http://127.0.0.1:8080`.
 
-3. Click **Authenticate with GitHub**. The Rancher UI displays.
+3. Click **Got It**. The Rancher UI displays.
 
 ### Working with Your First Environment
 
@@ -60,9 +60,7 @@ Initially, Rancher creates a **Default** Cattle environment for you. You can als
 
 ### Adding Hosts
 
-The process of adding hosts is the same steps for all container orchestration types. You can either add a host from a cloud provider that Rancher v1.6 supports, or you can add a custom host. If you don't see your cloud provider in the UI, don't worry. Simply use the custom host option.
-
-The `Custom` option is selected by default. It provides the Docker command to launch the Rancher agent container. Rancher uses Docker Machine to launch hosts for the other cloud providers.
+The process of adding hosts is the same steps for all container orchestration types. You can either add a custom host or a host from a cloud provider that Rancher v1.6 supports. If you don't see your cloud provider in the UI, don't worry. Simply use the `Custom` host option, which is selected by default. It provides the Docker command to launch the Rancher agent container. Rancher uses Docker Machine to launch hosts for the other cloud providers.
 
 If you're adding a custom host, note these requirements:
 * Typically, Rancher automatically detects the IP address to register the host.
@@ -76,23 +74,24 @@ If you're adding a custom host, note these requirements:
 
 1. From the **Infrastructure** menu, select **Hosts**. The Hosts page displays.
 2. Click **Add Host**.
-3. Enter your **Host Registration URL**, and click **Save**. This URL is where Rancher Server is running, and it must be reachable from any hosts you add. Ignore any warnings for now. The Add Host page displays.
-4. Select **Custom**. A Docker command displays. For example:
+3. Enter your **Host Registration URL**, and click **Save**. This URL is where Rancher Server is running, and it must be reachable from any hosts you add. The Add Host page displays.
+4. Select **Custom**.  
+5. If you need to specify an agent IP address, you can enter it in the field.
+6. Copy, paste, and run the Docker command on your host to register it with Rancher. This process might take a few minutes to complete. For example:
    ```bash
-   sudo docker run --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/rancher:/var/lib/rancher rancher/agent:v2.0-alpha2
+   sudo docker run --rm --privileged -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/rancher:/var/lib/rancher rancher/agent:v1.6
    http://<SERVER_IP>:8080/v3/scripts/D5433C26EC51325F9D98:1483142400000:KvILQKwz1N2MpOkOiIvGYKKGdE
    ```
-
-   >**Note:** The IP address in the command must match your `<SERVER_IP>` and it must be reachable from inside your host.
-
-5. Copy, paste, and run the Docker command on your host to register it with Rancher. This process might take a few minutes to complete.
-6. Click **Close**. On the Hosts page, you can view the status of your host.
+    
+    >**Note:** The IP address in the command must match your `<SERVER_IP>` and it must be reachable from inside your host.
+    
+7. Click **Close**. On the Hosts page, you can view the status of your host.
 
 #### To Add a Host from a Cloud Provider:
 
 1. From the **Infrastructure** menu, select **Hosts**. The Hosts page displays.
 2. Click **Add Host**.
-3. Enter your **Host Registration URL**, and click **Save**. This URL is where Rancher Server is running, and it must be reachable from any hosts you add. Ignore any warnings for now. The Add Host page displays.
+3. Enter your **Host Registration URL**, and click **Save**. This URL is where Rancher Server is running, and it must be reachable from any hosts you add. The Add Host page displays.
 4. Select your cloud provider:
    * Amazon EC2
    * Microsoft Azure
@@ -112,7 +111,7 @@ The process for adding a container differs depending on your container orchestra
 
 #### To Add a Container:
 
-1. On the Rancher UI menu, click **Stacks**. (Or, from the Welcome screen, click **Define a Service**.)
+1. On the Rancher UI menu, click **Stacks**. 
 2. Click **Add Stack**. The Add Stack page displays.
 3. Enter a **Name**, such as `first-container`.
 4. Click **Create**. The new stack displays on the Stacks page.
