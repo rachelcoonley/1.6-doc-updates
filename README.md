@@ -10,12 +10,14 @@ lang: en
 
 In this guide, you'll learn how to quickly get started with Rancher v1.6, including:
 
-* Preparing a Linux Host
+* [Preparing a Linux Host](#prepare-host)
 * Launching Rancher Server (and Accessing the Rancher UI)
 * Working with Your First Environment
 * Adding Hosts
 * Adding Containers
 * Launching Catalog Applications
+
+<a id="prepare-host"></a>
 
 ### Preparing a Linux Host
 
